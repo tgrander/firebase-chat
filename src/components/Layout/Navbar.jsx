@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import { Modal, Input } from 'antd';
+import { auth } from '../../firebase'
 
 import './Navbar.css';
 
@@ -13,14 +14,37 @@ class Navbar extends React.Component {
         password: ''
     }
 
+    componentDidMount = () => {
+
+        auth.onAuthStateChanged(user => {
+          if (user) {
+            // User is signed in.
+
+            console.log('USER: ', user);
+
+            const { email, uid } = user
+
+          } else {
+            // User is signed out.
+
+          }
+      });
+    }
+
     renderModal = () => {
+
         this.setState({ showModal: !this.state.showModal })
     }
 
     handleOk = () => {
 
+        const { email, password } = this.state
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => this.renderModal())
+            .catch(err => console.error(err))
+
         this.setState({ email: '', password: '' })
-        this.renderModal()
     }
 
   render() {
