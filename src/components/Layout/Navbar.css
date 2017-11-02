@@ -1,0 +1,17 @@
+.navbar {
+
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 80px;
+}
+
+.navbar > :not(:last-child) {
+
+    margin-right: 12px;
+}
