@@ -14,7 +14,7 @@ function Message({ message }) {
 }
 
 Message.propTypes = {
-  message: propTypes.string.isRequired,
+  message: propTypes.object.isRequired,
 };
 
 export default Message;

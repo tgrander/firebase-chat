@@ -8,11 +8,14 @@
 }
 
 .App {
+
+    position: relative;
+
     display: flex;
     justify-content: center;
     flex-direction: column;
 
-    margin: 24px 0 48px 0;
+    margin-bottom: 48px;
 }
 
 @media screen and (min-width: 550px) {
