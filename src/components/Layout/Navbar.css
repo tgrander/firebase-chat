@@ -6,12 +6,30 @@
     display: flex;
     flex-flow: nowrap;
     justify-content: flex-end;
+    align-items: center;
 
     width: 100%;
-    height: 80px;
+    height: 60px;
+
+    padding: 12px;
+
+    background-color: #1E9EE0;
 }
 
-.navbar > :not(:last-child) {
+.navbar > :not(:last-child),
+.nav-links > :not(:last-child) {
 
     margin-right: 12px;
+}
+
+a {
+
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+}
+
+a:hover {
+
+    color: black;
 }
