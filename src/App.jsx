@@ -1,19 +1,23 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import ChangeColor from './components/ChangeColor';
-import Messages from './components/Messages';
-import TextInput from './components/TextInput';
+import MessagesContainer from './components/MessagesContainer';
+import TextInputContainer from './components/TextInputContainer';
+import store from './store';
 
 
 function App() {
   return (
-    <div className="App">
-      <Messages />
-      <div className="input-area">
-        <TextInput />
-        <ChangeColor />
+    <Provider store={store}>
+      <div className="App">
+        <MessagesContainer />
+        <div className="input-area">
+          <TextInputContainer />
+          <ChangeColor />
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 

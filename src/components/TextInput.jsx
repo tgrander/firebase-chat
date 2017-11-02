@@ -10,6 +10,11 @@ class TextInput extends React.Component {
   }
 
   render() {
+
+    const { props } = this
+
+    console.log('TEXT INPUT PROPS: ', props);
+
     return (
 
       <TextArea {...{
@@ -17,8 +22,7 @@ class TextInput extends React.Component {
           placeholder: 'Start typing here...',
           value: this.state.value,
           onPressEnter: () => {
-              // replace with action
-              console.log(this.state.value)
+              props.sendMessage(this.state.value)
               this.setState({ value: '' })
           },
           onChange: e => this.setState({ value: e.target.value }),

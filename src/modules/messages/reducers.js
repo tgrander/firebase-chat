@@ -10,7 +10,7 @@ const messagesReducer = (state = initialState, action) => {
     case types.SEND_MESSAGE:
       return {
         ...state,
-        messages: [...messages, action.message],
+        messages: [...state.messages, action.message],
       };
 
     default:
