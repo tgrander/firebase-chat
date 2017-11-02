@@ -17,6 +17,7 @@ class TextInput extends React.Component {
           placeholder: 'Start typing here...',
           value: this.state.value,
           onPressEnter: () => {
+              // replace with action
               console.log(this.state.value)
               this.setState({ value: '' })
           },
