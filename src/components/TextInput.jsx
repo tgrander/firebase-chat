@@ -13,8 +13,6 @@ class TextInput extends React.Component {
 
     const { props } = this
 
-    console.log('TEXT INPUT PROPS: ', props);
-
     return (
 
       <TextArea {...{

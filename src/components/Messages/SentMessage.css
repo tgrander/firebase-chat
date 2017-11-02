@@ -1,5 +1,12 @@
 .sent-message {
 
+    display: flex;
+    align-self: flex-end;
+
+    max-width: 70%;
+
     padding: 12px;
     border-radius: 40px;
+
+    color: white;
 }

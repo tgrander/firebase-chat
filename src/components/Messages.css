@@ -1,9 +1,18 @@
 .messages {
 
+    display: flex;
+    flex-direction: column;
+
     height: 100%;
 
     margin-bottom: 24px;
+    padding: 12px;
 
     border: 1px solid #d9d9d9;
     border-radius: 4px;
+}
+
+.messages > :not(:last-child) {
+
+    margin-bottom: 12px;
 }
