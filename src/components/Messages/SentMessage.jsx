@@ -4,18 +4,17 @@ import propTypes from 'prop-types';
 import './SentMessage.css';
 
 
-function Message({ text, backgroundColor }) {
+function Message({ message }) {
   return (
 
-    <div className="sent-message" style={{ backgroundColor: backgroundColor || '#1E9EE0' }}>
-      {text}
+    <div className="sent-message" style={{ backgroundColor: message.color }}>
+      {message.value}
     </div>
   );
 }
 
 Message.propTypes = {
-  backgroundColor: propTypes.string.isRequired,
-  text: propTypes.string.isRequired,
+  message: propTypes.string.isRequired,
 };
 
 export default Message;

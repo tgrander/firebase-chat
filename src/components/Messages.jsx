@@ -8,7 +8,7 @@ import './Messages.css';
 function Messages({ messages }) {
   return (
     <div className="messages">
-      { messages.map(message => <SentMessage value={message} />) }
+      { messages.map(message => <SentMessage message={message} />) }
     </div>
   );
 }
