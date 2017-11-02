@@ -5,7 +5,7 @@
 
     display: flex;
     flex-flow: nowrap;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 
     width: 100%;
@@ -20,6 +20,13 @@
 .nav-links > :not(:last-child) {
 
     margin-right: 12px;
+}
+
+.logo {
+
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
 }
 
 a {
