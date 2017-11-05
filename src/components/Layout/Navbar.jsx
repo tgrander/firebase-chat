@@ -55,20 +55,31 @@ class Navbar extends React.Component {
     return (
       <div className="navbar">
 
-         <div className="logo">Happy Chat :)</div>
+          <div className="nav-container">
+              <div className="logo">Happy Chat :)</div>
 
-        {
-          props.auth
-              ? (
-                <a href="#">Logout</a>
-              )
-              : (
-                <div className="nav-links">
-                  <a href="#" onClick={this.renderModal}>Sign In</a>
-                </div>
-              )
-        }
+             {
+               props.auth
+                   ? (
+                     <a href="#">Logout</a>
+                   )
+                   : (
+                     <div className="nav-links">
+                       <a href="#" onClick={this.renderModal}>Sign In</a>
+                     </div>
+                   )
+             }
+          </div>
 
+        <Modal
+          title="Basic Modal"
+          visible={this.state.showModal}
+          onOk={this.handleOk}
+          onCancel={this.renderModal}
+        >
+          <Input placeholder="Email" onChange={e => this.setState({ email: e.target.value })} />
+          <Input placeholder="Password" onChange={e => this.setState({ password: e.target.value })} />
+        </Modal>
       </div>
     );
   }

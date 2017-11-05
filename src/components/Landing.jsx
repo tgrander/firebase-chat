@@ -1,9 +1,15 @@
 import { Button, Input, Modal } from 'antd';
 import propTypes from 'prop-types';
 import React from 'react';
+import types from '../modules/auth/types'
 
 import './Landing.css'
 
+
+const mapAuthTypeToFunction = {
+    [types.SIGN_UP]: () => {},
+    [types.SIGN_IN]: () => {},
+}
 
 class Landing extends React.PureComponent {
   constructor(props) {
@@ -24,10 +30,6 @@ class Landing extends React.PureComponent {
   handleOk = () => {
       const { email, password } = this.state
 
-      // auth.signInWithEmailAndPassword(email, password)
-      //     .then(() => this.renderModal())
-      //     .catch(err => console.error(err))
-
       this.setState({ email: '', password: '' })
   }
 
@@ -44,14 +46,19 @@ class Landing extends React.PureComponent {
 
     return (
       <div className="landing">
-        <div>Happy Chat :)</div>
+        <div className="landing-logo">Happy Chat :)</div>
 
         <div className="create-account">
             <Input placeholder="Email" onChange={this.onChangeEmail} />
             <Input placeholder="Password" onChange={this.onChangePassword} />
         </div>
 
-        <Button type="primary">Sign up</Button>
+        <Button {...{
+            type: 'primary',
+            onClick: this.handleOk
+        }}>
+            Sign up
+        </Button>
       </div>
     );
   }

@@ -5,7 +5,7 @@
 
     display: flex;
     flex-flow: nowrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     width: 100%;
@@ -20,6 +20,22 @@
 .nav-links > :not(:last-child) {
 
     margin-right: 12px;
+}
+
+.nav-container {
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 550px) {
+
+    .nav-container {
+        width: 100%;
+        max-width: 575px;
+    }
 }
 
 .logo {
