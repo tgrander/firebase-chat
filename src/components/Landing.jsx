@@ -1,6 +1,8 @@
-import { Modal, Input } from 'antd';
+import { Button, Input, Modal } from 'antd';
 import propTypes from 'prop-types';
 import React from 'react';
+
+import './Landing.css'
 
 
 class Landing extends React.PureComponent {
@@ -20,7 +22,6 @@ class Landing extends React.PureComponent {
   }
 
   handleOk = () => {
-
       const { email, password } = this.state
 
       // auth.signInWithEmailAndPassword(email, password)
@@ -30,12 +31,27 @@ class Landing extends React.PureComponent {
       this.setState({ email: '', password: '' })
   }
 
+  onChangeEmail = e => {
+      this.setState({ email: e.target.value })
+  }
+
+  onChangePassword = e => {
+      this.setState({ password: e.target.value })
+  }
+
   render() {
     const { props } = this;
 
     return (
-      <div>
-        <div>Logo</div>
+      <div className="landing">
+        <div>Happy Chat :)</div>
+
+        <div className="create-account">
+            <Input placeholder="Email" onChange={this.onChangeEmail} />
+            <Input placeholder="Password" onChange={this.onChangePassword} />
+        </div>
+
+        <Button type="primary">Sign up</Button>
       </div>
     );
   }
