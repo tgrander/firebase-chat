@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
 import React from 'react';
-import { Modal, Input } from 'antd';
+import { Modal, Icon, Input } from 'antd';
 // import { auth } from '../../firebase'
 
 import './Navbar.css';
@@ -56,13 +56,14 @@ class Navbar extends React.Component {
       <div className="navbar">
 
           <div className="nav-container">
-              <div className="logo">Happy Chat :)</div>
+              <div className="logo">
+                  Happy Chat
+                  <Icon type="message" />
+              </div>
 
              {
                props.auth
-                   ? (
-                     <a href="#">Logout</a>
-                   )
+                   ?  <a href="#">Logout</a>
                    : (
                      <div className="nav-links">
                        <a href="#" onClick={this.renderModal}>Sign In</a>

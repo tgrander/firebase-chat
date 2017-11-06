@@ -1,14 +1,18 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import SentMessage from './Messages/SentMessage';
+import TextInput from './Messages/TextInputContainer';
 
 import './Messages.css';
 
 
 function Messages({ messages }) {
   return (
-    <div className="messages">
-      { messages.map(message => <SentMessage message={message} />) }
+    <div className="messages-container">
+      <div className="messages">
+        { messages.map(message => <SentMessage message={message} />) }
+      </div>
+      <TextInput />
     </div>
   );
 }
