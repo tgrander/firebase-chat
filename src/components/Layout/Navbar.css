@@ -40,9 +40,18 @@
 
 .logo {
 
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    
     font-size: 24px;
     font-weight: 400;
     color: white;
+}
+
+.logo > :not(:last-child) {
+
+    margin-right: 12px;
 }
 
 a {
