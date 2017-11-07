@@ -1,7 +1,8 @@
 .sent-message {
 
     display: flex;
-    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
 
     max-width: 70%;
 
@@ -9,4 +10,27 @@
     border-radius: 40px;
 
     color: white;
+}
+
+.message-container {
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-self: flex-end;
+    justify-content: flex-end;
+
+    width: 100%;
+}
+
+.message-container > :not(:last-child) {
+
+    margin-right: 12px;
+}
+
+.message-value {
+
+    display: flex;
+
+    padding:  0 6px 0 6px;
 }
