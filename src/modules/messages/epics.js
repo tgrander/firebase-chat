@@ -10,7 +10,6 @@ import types from './types';
 const sendMessageEpic = action$ =>
   action$.ofType(types.SEND_MESSAGE)
     .mergeMap(({ message }) =>
-    //   Observable.fromPromise(messagesRef.doc(message.messageId).set(message))
       Observable.fromPromise(Promise.resolve(message))
         .mergeMap(() => Observable.of({
           type: types.SEND_MESSAGE_SUCCESS,
@@ -23,3 +22,5 @@ const sendMessageEpic = action$ =>
         })));
 
 export default sendMessageEpic;
+
+// db.collection('messages').doc(message.messageId).set(message)
