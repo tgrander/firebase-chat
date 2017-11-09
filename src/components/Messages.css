@@ -1,12 +1,14 @@
 .messages-container {
 
     width: 100%;
+    /*overflow-y: auto;*/
 }
 
 .messages {
 
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 
     height: 80%;
 

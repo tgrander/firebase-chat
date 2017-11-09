@@ -68,7 +68,7 @@ class Navbar extends React.Component {
 
              {
                props.isAuthorized
-                   ?  <a href="#">Logout</a>
+                   ?  <a href="#" onClick={this.onClickLogout}>Logout</a>
                    : (
                      <div className="nav-links">
                        <a href="#" onClick={this.renderModal}>Sign In</a>

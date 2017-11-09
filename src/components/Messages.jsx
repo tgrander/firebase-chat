@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import map from 'lodash/map';
 import propTypes from 'prop-types';
 import React from 'react';
@@ -9,20 +10,40 @@ import Landing from './LandingContainer';
 import './Messages.css';
 
 
-function Messages({ messages, userId, isAuthorized }) {
-  if (isAuthorized) {
-    return <Landing />;
+class Messages extends React.PureComponent {
+  componentDidMount() {
+    this.scrollToBottom();
   }
-  return (
-    <div className="messages-container">
-      <div className="messages">
-        { map(messages, message => (message.userId === userId
-                ? <SentMessage key={message.messageId} message={message} />
-                : <ReceivedMessage key={message.messageId} message={message} />)) }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    const node = ReactDOM.findDOMNode(this.messagesEnd);
+    node.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  render() {
+    const { props } = this;
+    if (!props.isAuthorized) {
+      return <Landing />;
+    }
+    return (
+      <div className="messages-container">
+        <div className="messages">
+          { map(props.messages, message => (message.userId === props.userId
+                      ? <SentMessage key={message.messageId} message={message} />
+                      : <ReceivedMessage key={message.messageId} message={message} />)) }
+          <div
+            style={{ float: 'left', clear: 'both' }}
+            ref={(el) => { this.messagesEnd = el; }}
+          />
+        </div>
+        <TextInput />
       </div>
-      <TextInput />
-    </div>
-  );
+    );
+  }
 }
 
 Messages.propTypes = {

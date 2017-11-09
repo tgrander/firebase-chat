@@ -25,6 +25,13 @@ const authReducer = (state = initialState, action) => {
         error: action.error,
       };
 
+    case types.SIGN_OUT:
+      return {
+        ...state,
+        userId: null,
+        isAuthorized: false,
+      };
+
     default:
       return state;
   }

@@ -11,16 +11,21 @@ import RedirectIfAuthorized from './hoc/RedirectIfAuthorized';
 
 class App extends React.Component {
   componentWillMount() {
-    this.databaseListener = db.collection('messages').orderBy('timeStamp')
+    db.collection('messages').orderBy('timeStamp')
       .onSnapshot(querySnapshot => this.props.fetchMessagesSuccess(querySnapshot));
 
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.authorizeUser(user.uid);
       } else {
-        console.log('USER IS NOT SIGNED IN');
+        this.props.signOut();
       }
     });
+  }
+
+  componentWillUnmount() {
+    // this.unsubscribeQueryListener();
+    // this.unsubscribeAuthListener();
   }
 
   render() {
@@ -40,7 +45,8 @@ class App extends React.Component {
 
 App.propTypes = {
   authorizeUser: propTypes.func.isRequired,
-  fetchMessages: propTypes.func.isRequired,
+  fetchMessagesSuccess: propTypes.func.isRequired,
+  signOut: propTypes.func.isRequired,
 };
 
 export default App;

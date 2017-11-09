@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { authorizeUser } from './modules/auth/actions';
+import { authorizeUser, signOut } from './modules/auth/actions';
 import { fetchMessages, fetchMessagesSuccess } from './modules/messages/actions';
 import App from './App';
 
@@ -12,6 +12,7 @@ const actions = {
   authorizeUser,
   fetchMessages,
   fetchMessagesSuccess,
+  signOut,
 };
 
 export default connect(mapStateToProps, actions)(App);
