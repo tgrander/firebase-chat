@@ -5,11 +5,13 @@ import './App.css';
 import Landing from './components/LandingContainer';
 import Messages from './components/MessagesContainer';
 import Navbar from './components/Layout/Navbar';
-import { auth } from './firebase';
+import { auth, db } from './firebase';
 
 
 class App extends React.Component {
   componentWillMount() {
+    this.props.fetchMessages();
+
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.authorizeUser(user.uid);
@@ -34,6 +36,7 @@ class App extends React.Component {
 
 App.propTypes = {
   authorizeUser: propTypes.func.isRequired,
+  fetchMessages: propTypes.func.isRequired,
 };
 
 export default App;

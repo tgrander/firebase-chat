@@ -11,7 +11,7 @@ function Messages({ messages }) {
   return (
     <div className="messages-container">
       <div className="messages">
-        { map(messages, message => <SentMessage message={message} />) }
+        { map(messages, message => <SentMessage key={message.messageId} message={message} />) }
       </div>
       <TextInput />
     </div>

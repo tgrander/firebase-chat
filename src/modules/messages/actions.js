@@ -15,3 +15,14 @@ export const sendMessage = message =>
       isSending: true,
     },
   });
+
+export const fetchMessages = () => ({ type: types.FETCH_MESSAGES });
+
+export const fetchMessagesSuccess = querySnapshot => ({
+
+  type: types.FETCH_MESSAGES_SUCCESS,
+  messages: querySnapshot.docs.reduce((accum, curr) => {
+    const message = curr.data();
+    return { ...accum, [message.messageId]: message };
+  }, {}),
+});

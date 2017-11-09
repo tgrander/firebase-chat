@@ -7,6 +7,12 @@ const initialState = {
 
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.FETCH_MESSAGES_SUCCESS:
+      return {
+        ...state,
+        messages: action.messages,
+      };
+
     case types.SEND_MESSAGE:
       return {
         ...state,

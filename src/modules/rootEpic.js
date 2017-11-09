@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
 import authEpic from './auth/epics';
-import messagesEpic from './messages/epics';
+import { fetchMessagesEpic, sendMessageEpic } from './messages/epics';
 
-export default combineEpics(authEpic, messagesEpic);
+export default combineEpics(authEpic, sendMessageEpic, fetchMessagesEpic);

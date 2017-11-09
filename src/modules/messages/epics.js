@@ -3,11 +3,12 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/mergeMap';
 import { Observable } from 'rxjs/Observable';
+import { fetchMessagesSuccess } from './actions';
 import messagesRef from './databaseRef';
 import types from './types';
 
 
-const messagesEpic = action$ =>
+export const sendMessageEpic = action$ =>
   action$.ofType(types.SEND_MESSAGE)
     .mergeMap(({ message }) =>
       Observable.fromPromise(messagesRef.doc(message.messageId).set(message))
@@ -21,4 +22,10 @@ const messagesEpic = action$ =>
           messageId: message.messageId,
         })));
 
-export default messagesEpic;
+export const fetchMessagesEpic = action$ =>
+  action$.ofType(types.FETCH_MESSAGES)
+    .mergeMap(() =>
+      Observable.fromPromise(messagesRef.get())
+        .mergeMap(querySnapshot =>
+          Observable.of(fetchMessagesSuccess(querySnapshot)))
+        .catch(error => Observable.of({ type: types.FETCH_MESSAGES_FAILURE, error })));
