@@ -26,9 +26,9 @@ class Messages extends React.PureComponent {
 
   render() {
     const { props } = this;
-    if (!props.isAuthorized) {
-      return <Landing />;
-    }
+    // if (!props.isAuthorized) {
+    //   return <Landing />;
+    // }
     return (
       <div className="messages-container">
         <div className="messages">

@@ -9,7 +9,7 @@ import './Navbar.css';
 class Navbar extends React.Component {
   onClickLogout = () => {
     // FIREBASE
-    auth.signOut()
+    // auth.signOut()
   }
 
   render() {
