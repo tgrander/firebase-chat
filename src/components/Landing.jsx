@@ -30,6 +30,8 @@ class Landing extends React.PureComponent {
   handleOk = () => {
       const { email, password } = this.state
 
+      this.props.signUp(email, password)
+
       this.setState({ email: '', password: '' })
   }
 
@@ -46,7 +48,7 @@ class Landing extends React.PureComponent {
 
     return (
       <div className="landing">
-        <div className="landing-logo">Happy Chat :)</div>
+        <h2 className="landing-logo">Sign up to get started</h2>
 
         <div className="create-account">
             <Input placeholder="Email" onChange={this.onChangeEmail} />
@@ -66,6 +68,7 @@ class Landing extends React.PureComponent {
 
 Landing.propTypes = {
   auth: propTypes.bool.isRequired,
+  signUp: propTypes.func.isRequired,
 };
 
 export default Landing;

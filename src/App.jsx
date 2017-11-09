@@ -6,7 +6,7 @@ import {
   Link,
 } from 'react-router-dom';
 import './App.css';
-import Landing from './components/Landing';
+import Landing from './components/LandingContainer';
 import Messages from './components/MessagesContainer';
 import Navbar from './components/Layout/Navbar';
 import store from './store';

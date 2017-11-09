@@ -3,12 +3,12 @@ import firestore from 'firebase/firestore';
 
 
 const config = {
-  apiKey: 'AIzaSyBvNz-3UpdRHKW8jogL98ySXRwyHrZmg6k',
-  authDomain: 'happy-chat-7cdbe.firebaseapp.com',
-  databaseURL: 'https://happy-chat-7cdbe.firebaseio.com',
-  projectId: 'happy-chat-7cdbe',
+  apiKey: 'AIzaSyAV7YPQaeTQcR_eYxlyvAyMeF3jibgG-mY',
+  authDomain: 'happy-chat-b2eb0.firebaseapp.com',
+  databaseURL: 'https://happy-chat-b2eb0.firebaseio.com',
+  projectId: 'happy-chat-b2eb0',
   storageBucket: '',
-  messagingSenderId: '664974801900',
+  messagingSenderId: '807917236846',
 };
 
 firebase.initializeApp(config);
