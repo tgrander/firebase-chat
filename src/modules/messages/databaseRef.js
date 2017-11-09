@@ -1,3 +1,3 @@
-import { db } from '../../firebase';
+// import { db } from '../../firebase';
 
-export default db.collection('messages');
+// export default db.collection('messages');

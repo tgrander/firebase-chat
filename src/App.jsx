@@ -5,7 +5,7 @@ import './App.css';
 import Landing from './components/LandingContainer';
 import Messages from './components/MessagesContainer';
 import Navbar from './components/Layout/NavbarContainer';
-import { auth, db } from './firebase';
+// import { auth, db } from './firebase';
 
 
 class App extends React.Component {

@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import { Icon } from 'antd';
-import { auth } from '../../firebase';
+// import { auth } from '../../firebase';
 
 import './Navbar.css';
 
