@@ -3,7 +3,6 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/mergeMap';
 import { Observable } from 'rxjs/Observable';
-import { fetchMessagesSuccess } from './actions';
 import messagesRef from './databaseRef';
 import types from './types';
 
