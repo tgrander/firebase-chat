@@ -9,6 +9,9 @@ export const sendMessage = message =>
 
   ({
     type: types.SEND_MESSAGE,
-    message,
-    id: uuid(),
+    message: {
+      ...message,
+      messageId: uuid(),
+      isSending: true,
+    },
   });

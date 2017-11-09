@@ -2,7 +2,7 @@ import types from './types';
 
 
 const initialState = {
-  messages: [],
+  messages: {},
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -10,7 +10,35 @@ const messagesReducer = (state = initialState, action) => {
     case types.SEND_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, action.message],
+        messages: {
+          ...state.messages,
+          [action.message.messageId]: action.message,
+        },
+      };
+
+    case types.SEND_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        messages: {
+          ...state.messages,
+          [action.messageId]: {
+            ...state.messages[action.messageId],
+            isSending: false,
+          },
+        },
+      };
+
+    case types.SEND_MESSAGE_FAILURE:
+      return {
+        ...state,
+        messages: {
+          ...state.messages,
+          [action.messageId]: {
+            ...state.messages[action.messageId],
+            isSending: false,
+            failed: true,
+          },
+        },
       };
 
     default:
