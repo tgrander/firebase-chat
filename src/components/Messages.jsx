@@ -4,11 +4,15 @@ import React from 'react';
 import ReceivedMessage from './Messages/ReceivedMessage';
 import SentMessage from './Messages/SentMessage';
 import TextInput from './Messages/TextInputContainer';
+import Landing from './LandingContainer';
 
 import './Messages.css';
 
 
-function Messages({ messages, userId }) {
+function Messages({ messages, userId, isAuthorized }) {
+  if (isAuthorized) {
+    return <Landing />;
+  }
   return (
     <div className="messages-container">
       <div className="messages">

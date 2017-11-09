@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import Messages from './Messages';
 
 
-const mapStateToProps = state => ({
-  userId: state.auth.userId,
-  messages: state.messages.messages,
+const mapStateToProps = ({ auth, messages }) => ({
+  isAuthorized: auth.isAuthorized,
+  userId: auth.userId,
+  messages: messages.messages,
 });
 
 export default connect(mapStateToProps)(Messages);
