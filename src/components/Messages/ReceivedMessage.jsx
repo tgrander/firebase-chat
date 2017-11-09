@@ -1,21 +1,22 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import './SentMessage.css';
+import './ReceivedMessage.css';
 
 
-function SentMessage({ value, backgroundColor }) {
+function ReceivedMessage({ message }) {
   return (
 
-    <div className="sent-message" style={{ backgroundColor: backgroundColor || '#1E9EE0' }}>
-      {value}
+    <div className="received-message-container">
+      <div className="received-message" style={{ backgroundColor: '#18A757' }}>
+        <div className="received-message-value">{message.value}</div>
+      </div>
     </div>
   );
 }
 
-SentMessage.propTypes = {
-  backgroundColor: propTypes.string,
-  value: propTypes.string.isRequired,
+ReceivedMessage.propTypes = {
+  message: propTypes.object.isRequired,
 };
 
-export default SentMessage;
+export default ReceivedMessage;

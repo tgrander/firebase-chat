@@ -1,0 +1,30 @@
+.received-message {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 70%;
+
+    padding: 12px;
+    border-radius: 40px;
+
+    color: white;
+}
+
+.received-message-container {
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+}
+
+.received-message-value {
+
+    display: flex;
+
+    padding:  0 6px 0 6px;
+}

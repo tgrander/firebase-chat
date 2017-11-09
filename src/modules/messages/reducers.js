@@ -10,7 +10,7 @@ const messagesReducer = (state = initialState, action) => {
     case types.FETCH_MESSAGES_SUCCESS:
       return {
         ...state,
-        messages: action.messages,
+        messages: { ...state.messages, ...action.messages },
       };
 
     case types.SEND_MESSAGE:

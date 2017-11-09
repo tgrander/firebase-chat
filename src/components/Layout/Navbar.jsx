@@ -57,7 +57,7 @@ class Navbar extends React.Component {
 
           <div className="nav-container">
               <div className="logo">
-                  <div>Happy Chat</div>
+                  <div>Chat It Up</div>
                   <Icon type="message" />
               </div>
 

@@ -16,6 +16,7 @@ class TextInput extends React.Component {
       this.props.sendMessage({
           value: this.state.value,
           color: this.props.color || '#1E9EE0',
+          timeStamp: new Date,
           userId: this.props.userId || ''
       })
 
@@ -33,7 +34,7 @@ class TextInput extends React.Component {
                 placeholder: 'Start typing here...',
                 value: this.state.value,
                 onChange: this.onChange,
-                onPressEnter: this.onPressEnter
+                onPressEnter: this.onPressEnter,
             }}/>
         </div>
     );

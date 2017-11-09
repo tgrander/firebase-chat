@@ -25,7 +25,12 @@ export const sendMessageEpic = action$ =>
 export const fetchMessagesEpic = action$ =>
   action$.ofType(types.FETCH_MESSAGES)
     .mergeMap(() =>
-      Observable.fromPromise(messagesRef.get())
-        .mergeMap(querySnapshot =>
-          Observable.of(fetchMessagesSuccess(querySnapshot)))
+      Observable.of(messagesRef.onSnapshot((querySnapshot) => {
+        console.log(querySnapshot);
+        return querySnapshot;
+      }))
+        .mergeMap((querySnapshot) => {
+          console.log('2', querySnapshot);
+          return Observable.of(fetchMessagesSuccess(querySnapshot));
+        })
         .catch(error => Observable.of({ type: types.FETCH_MESSAGES_FAILURE, error })));

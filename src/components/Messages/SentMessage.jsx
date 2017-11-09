@@ -5,7 +5,7 @@ import { Icon } from 'antd';
 import './SentMessage.css';
 
 
-function Message({ message }) {
+function SentMessage({ message }) {
   return (
 
     <div className="message-container">
@@ -17,8 +17,8 @@ function Message({ message }) {
   );
 }
 
-Message.propTypes = {
+SentMessage.propTypes = {
   message: propTypes.object.isRequired,
 };
 
-export default Message;
+export default SentMessage;

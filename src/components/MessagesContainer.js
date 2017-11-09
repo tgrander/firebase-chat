@@ -3,6 +3,7 @@ import Messages from './Messages';
 
 
 const mapStateToProps = state => ({
+  userId: state.auth.userId,
   messages: state.messages.messages,
 });
 

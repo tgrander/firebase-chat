@@ -10,7 +10,8 @@ import { auth, db } from './firebase';
 
 class App extends React.Component {
   componentWillMount() {
-    this.props.fetchMessages();
+    this.databaseListener = db.collection('messages').orderBy('timeStamp')
+      .onSnapshot(querySnapshot => this.props.fetchMessagesSuccess(querySnapshot));
 
     auth.onAuthStateChanged((user) => {
       if (user) {
