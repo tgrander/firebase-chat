@@ -1,3 +1,4 @@
+import map from 'lodash/map';
 import propTypes from 'prop-types';
 import React from 'react';
 import SentMessage from './Messages/SentMessage';
@@ -10,7 +11,7 @@ function Messages({ messages }) {
   return (
     <div className="messages-container">
       <div className="messages">
-        { messages.map(message => <SentMessage message={message} />) }
+        { map(messages, message => <SentMessage message={message} />) }
       </div>
       <TextInput />
     </div>
