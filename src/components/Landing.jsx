@@ -7,11 +7,6 @@ import Messages from './MessagesContainer'
 import './Landing.css'
 
 
-const mapAuthTypeToFunction = {
-    [types.SIGN_UP]: () => {},
-    [types.SIGN_IN]: () => {},
-}
-
 class Landing extends React.PureComponent {
   constructor(props) {
     super(props);

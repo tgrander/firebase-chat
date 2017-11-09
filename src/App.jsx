@@ -11,9 +11,11 @@ import RedirectIfAuthorized from './hoc/RedirectIfAuthorized';
 
 class App extends React.Component {
   componentWillMount() {
+    // FIREBASE
     db.collection('messages').orderBy('timeStamp')
       .onSnapshot(querySnapshot => this.props.fetchMessagesSuccess(querySnapshot));
 
+    // FIREBASE
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.authorizeUser(user.uid);
@@ -24,8 +26,9 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    // this.unsubscribeQueryListener();
-    // this.unsubscribeAuthListener();
+    // FIREBASE
+    this.unsubscribeQueryListener();
+    this.unsubscribeAuthListener();
   }
 
   render() {

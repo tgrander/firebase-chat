@@ -14,25 +14,6 @@ class Navbar extends React.Component {
         password: ''
     }
 
-    componentDidMount = () => {
-
-    //     auth.onAuthStateChanged(user => {
-    //       if (user) {
-    //         // User is signed in.
-      //
-    //         console.log('USER: ', user);
-      //
-    //         const { email, uid } = user
-      //
-    //
-      //
-    //       } else {
-    //         // User is signed out.
-      //
-    //       }
-    //   });
-    }
-
     renderModal = () => {
 
         this.setState({ showModal: !this.state.showModal })
