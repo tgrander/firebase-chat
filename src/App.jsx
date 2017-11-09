@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/LandingContainer';
 import Messages from './components/MessagesContainer';
-import Navbar from './components/Layout/Navbar';
+import Navbar from './components/Layout/NavbarContainer';
 import { auth, db } from './firebase';
 import RedirectIfAuthorized from './hoc/RedirectIfAuthorized';
 

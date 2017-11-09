@@ -24,4 +24,5 @@ export const signOut = () => ({
 
   type: types.SIGN_OUT,
   userId: null,
+  isAuthorized: false,
 });

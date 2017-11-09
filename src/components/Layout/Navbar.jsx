@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 import { Modal, Icon, Input } from 'antd';
-// import { auth } from '../../firebase'
+import { auth } from '../../firebase'
 
 import './Navbar.css';
 
@@ -49,6 +49,11 @@ class Navbar extends React.Component {
         this.setState({ email: '', password: '' })
     }
 
+    onClickLogout = () => {
+        auth.signOut()
+            .then(() => this.props.signOut())
+    }
+
   render() {
     const { props } = this;
 
@@ -62,7 +67,7 @@ class Navbar extends React.Component {
               </div>
 
              {
-               props.auth
+               props.isAuthorized
                    ?  <a href="#">Logout</a>
                    : (
                      <div className="nav-links">

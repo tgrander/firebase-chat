@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Navbar from './Navbar';
-import { signin } from '../../modules/auth/actions';
+import { signIn, signOut } from '../../modules/auth/actions';
 
 
-const mapStateToProps = state => ({
-  auth: state.auth.isAuthorized,
+const mapStateToProps = ({ auth }) => ({
+  isAuthorized: auth.isAuthorized,
 });
 
-export default connect(mapStateToProps, { signIn })(Navbar);
+export default connect(mapStateToProps, { signIn, signOut })(Navbar);
