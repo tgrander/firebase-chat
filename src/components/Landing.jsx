@@ -2,6 +2,7 @@ import { Button, Input, Modal } from 'antd';
 import propTypes from 'prop-types';
 import React from 'react';
 import types from '../modules/auth/types'
+import Messages from './MessagesContainer'
 
 import './Landing.css'
 
@@ -45,6 +46,10 @@ class Landing extends React.PureComponent {
 
   render() {
     const { props } = this;
+
+    if (props.isAuthorized) {
+        return <Messages />
+    }
 
     return (
       <div className="landing">

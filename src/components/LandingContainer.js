@@ -3,8 +3,8 @@ import { signUp } from '../modules/auth/actions';
 import Landing from './Landing';
 
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = ({ auth }) => ({
+  isAuthorized: auth.isAuthorized,
 });
 
 export default connect(mapStateToProps, { signUp })(Landing);
