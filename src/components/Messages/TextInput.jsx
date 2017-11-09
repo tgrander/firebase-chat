@@ -17,7 +17,7 @@ class TextInput extends React.Component {
           value: this.state.value,
           color: this.props.color || '#1E9EE0',
           timeStamp: new Date,
-          userId: this.props.userId || ''
+          userId: this.props.userId || 'anonymous',
       })
 
       this.setState({ value: '' })

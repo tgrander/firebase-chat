@@ -11,11 +11,11 @@ import { auth, db } from './firebase';
 class App extends React.Component {
   componentWillMount() {
     // FIREBASE
-    db.collection('messages').orderBy('timeStamp')
+    this.unsubscribeQueryListener = db.collection('messages').orderBy('timeStamp')
       .onSnapshot(querySnapshot => this.props.fetchMessagesSuccess(querySnapshot));
 
     // FIREBASE
-    auth.onAuthStateChanged((user) => {
+    this.unsubscribeAuthListener = auth.onAuthStateChanged((user) => {
       if (user) {
         this.props.authorizeUser(user.uid);
       } else {

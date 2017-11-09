@@ -18,7 +18,7 @@ const messagesReducer = (state = initialState, action) => {
         ...state,
         messages: {
           ...state.messages,
-          [action.message.messageId]: action.message,
+          [action.message.messageId]: { ...action.message, sendState: 'sending' },
         },
       };
 
@@ -29,7 +29,7 @@ const messagesReducer = (state = initialState, action) => {
           ...state.messages,
           [action.messageId]: {
             ...state.messages[action.messageId],
-            isSending: false,
+            sendState: 'success',
           },
         },
       };
@@ -41,8 +41,7 @@ const messagesReducer = (state = initialState, action) => {
           ...state.messages,
           [action.messageId]: {
             ...state.messages[action.messageId],
-            isSending: false,
-            failed: true,
+            sendState: 'failed',
           },
         },
       };
