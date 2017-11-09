@@ -10,24 +10,20 @@ import Navbar from './components/Layout/NavbarContainer';
 
 class App extends React.Component {
   componentWillMount() {
-    // FIREBASE
     // this.unsubscribeQueryListener = db.collection('messages').orderBy('timeStamp')
     //   .onSnapshot(querySnapshot => this.props.fetchMessagesSuccess(querySnapshot));
 
-    // FIREBASE
-    // this.unsubscribeAuthListener = auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.props.authorizeUser(user.uid);
-    //   } else {
-    //     this.props.signOut();
-    //   }
-    // });
+    //   this.unsubscribeAuthListener = auth.onAuthStateChanged((user) => {
+    //     if (user) {
+    //       this.props.authorizeUser(user.uid);
+    //     } else {
+    //       this.props.signOut();
+    //     }
+    //   });
   }
 
   componentWillUnmount() {
-    // FIREBASE
     // this.unsubscribeQueryListener();
-    // FIREBASE
     // this.unsubscribeAuthListener();
   }
 
