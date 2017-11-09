@@ -10,18 +10,13 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.AUTHORIZE_USER:
     case types.SIGN_IN_SUCCESS:
-      return {
-        ...state,
-        isAuthorized: true,
-        userId: action.userId,
-      };
-
     case types.SIGN_UP_SUCCESS:
       return {
         ...state,
         isAuthorized: true,
-        uid: action.uid,
+        userId: action.userId,
       };
 
     case types.SIGN_UP_FAILURE:

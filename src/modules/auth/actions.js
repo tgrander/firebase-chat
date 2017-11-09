@@ -1,10 +1,17 @@
 import types from './types';
 
 
-export const signIn = userId => ({
+export const authorizeUser = userId => ({
+
+  type: types.AUTHORIZE_USER,
+  userId,
+});
+
+export const signIn = (email, password) => ({
 
   type: types.SIGN_IN,
-  userId,
+  email,
+  password,
 });
 
 export const signUp = (email, password) => ({

@@ -9,9 +9,22 @@ class TextInput extends React.Component {
       value: ''
   }
 
+  onChange = e => this.setState({ value: e.target.value })
+
+  onPressEnter = () => {
+
+      this.props.sendMessage({
+          value: this.state.value,
+          color: this.props.color || '#1E9EE0',
+          userId: this.props.userId || ''
+      })
+
+      this.setState({ value: '' })
+  }
+
   render() {
 
-    const { props } = this
+    const { props, state } = this
 
     return (
         <div className="text-input">
@@ -19,19 +32,9 @@ class TextInput extends React.Component {
                 autosize: true,
                 placeholder: 'Start typing here...',
                 value: this.state.value,
-                onPressEnter: () => {
-
-                    props.sendMessage({
-                        value: this.state.value,
-                        color: this.props.color || '#1E9EE0',
-                        userId: this.state.userId || ''
-                    })
-
-                    this.setState({ value: '' })
-                },
-                onChange: e => this.setState({ value: e.target.value }),
-            }}
-            />
+                onChange: this.onChange,
+                onPressEnter: this.onPressEnter
+            }}/>
         </div>
     );
   }

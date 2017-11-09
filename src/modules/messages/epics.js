@@ -10,4 +10,15 @@ import types from './types';
 const messagesEpic = action$ =>
   action$.ofType(types.SEND_MESSAGE)
     .mergeMap(({ message }) =>
-      Observable.fromPromise(messagesRef.doc(message.messageId).set(message)));
+      Observable.fromPromise(messagesRef.doc(message.messageId).set(message))
+        .mergeMap(() => Observable.of({
+          type: types.SEND_MESSAGE_SUCCESS,
+          messageId: message.messageId,
+        }))
+        .catch(error => Observable.of({
+          type: types.SEND_MESSAGE_FAILURE,
+          error,
+          messageId: message.messageId,
+        })));
+
+export default messagesEpic;
