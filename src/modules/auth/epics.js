@@ -11,11 +11,7 @@ const authEpic = action$ =>
   action$.ofType(types.SIGN_UP)
     .mergeMap(({ email, password }) =>
       Observable.fromPromise(auth.createUserWithEmailAndPassword(email, password))
-        .mergeMap((res) => {
-          console.log('SIGN UP SUCCESS RESPONSE: ', res);
-          return Observable.of({ type: types.SIGN_UP_SUCCESS });
-        })
+        .mergeMap(({ uid }) => Observable.of({ type: types.SIGN_UP_SUCCESS, uid }))
         .catch(error => Observable.of({ type: types.SIGN_UP_FAILURE, error })));
-
 
 export default authEpic;
