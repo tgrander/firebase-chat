@@ -1,4 +1,5 @@
 import types from './types';
+import uuid from '../../utilities/uuid';
 // import { db } from '../../firebase';
 
 
@@ -9,5 +10,5 @@ export const sendMessage = message =>
   ({
     type: types.SEND_MESSAGE,
     message,
+    id: uuid(),
   });
-
