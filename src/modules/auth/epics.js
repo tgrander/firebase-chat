@@ -11,8 +11,8 @@ const authEpic = action$ =>
   action$.ofType(types.SIGN_UP)
     .mergeMap(({ email, password }) => Observable.of({ type: types.SIGN_UP_SUCCESS }));
 // FIREBASE
-//   Observable.fromPromise(auth.createUserWithEmailAndPassword(email, password))
-//     .mergeMap(({ uid }) => Observable.of({ type: types.SIGN_UP_SUCCESS, uid }))
-//     .catch(error => Observable.of({ type: types.SIGN_UP_FAILURE, error })));
+  // Observable.fromPromise(auth.createUserWithEmailAndPassword(email, password))
+  //   .mergeMap(({ uid }) => Observable.of({ type: types.SIGN_UP_SUCCESS, userId: uid }))
+  //   .catch(error => Observable.of({ type: types.SIGN_UP_FAILURE, error })));
 
 export default authEpic;
