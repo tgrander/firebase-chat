@@ -3,7 +3,7 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/mergeMap';
 import { Observable } from 'rxjs/Observable';
-// import { auth, db } from '../../firebase';
+// import { db } from '../../firebase';
 import types from './types';
 
 
@@ -23,4 +23,4 @@ const sendMessageEpic = action$ =>
 
 export default sendMessageEpic;
 
-// db.collection('messages').doc(message.messageId).set(message)
+// db.collection('messages').doc(message.messageId).set(message);
