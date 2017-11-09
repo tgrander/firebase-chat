@@ -10,7 +10,6 @@ class Navbar extends React.Component {
   onClickLogout = () => {
     // FIREBASE
     auth.signOut()
-      .then(() => this.props.signOut());
   }
 
   render() {
@@ -25,15 +24,14 @@ class Navbar extends React.Component {
             <Icon type="message" />
           </div>
 
-          {
-               props.isAuthorized
-                   ? <a href="#" onClick={this.onClickLogout}>Logout</a>
-                   : (
-                     <div className="nav-links">
-                       <a href="#" onClick={this.renderModal}>Sign In</a>
-                     </div>
-                   )
-             }
+          {props.isAuthorized
+               ? <a href="#" onClick={this.onClickLogout}>Logout</a>
+               : (
+                 <div className="nav-links">
+                   <a href="#" onClick={this.renderModal}>Sign In</a>
+                 </div>
+               )
+          }
         </div>
       </div>
     );

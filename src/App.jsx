@@ -6,7 +6,6 @@ import Landing from './components/LandingContainer';
 import Messages from './components/MessagesContainer';
 import Navbar from './components/Layout/NavbarContainer';
 import { auth, db } from './firebase';
-import RedirectIfAuthorized from './hoc/RedirectIfAuthorized';
 
 
 class App extends React.Component {
@@ -28,12 +27,11 @@ class App extends React.Component {
   componentWillUnmount() {
     // FIREBASE
     this.unsubscribeQueryListener();
+    // FIREBASE
     this.unsubscribeAuthListener();
   }
 
   render() {
-    const { props } = this;
-
     return (
       <div className="App">
         <Navbar />

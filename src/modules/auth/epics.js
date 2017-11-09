@@ -10,6 +10,7 @@ import types from './types';
 const authEpic = action$ =>
   action$.ofType(types.SIGN_UP)
     .mergeMap(({ email, password }) =>
+    // FIREBASE
       Observable.fromPromise(auth.createUserWithEmailAndPassword(email, password))
         .mergeMap(({ uid }) => Observable.of({ type: types.SIGN_UP_SUCCESS, uid }))
         .catch(error => Observable.of({ type: types.SIGN_UP_FAILURE, error })));

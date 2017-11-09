@@ -18,11 +18,6 @@ class Landing extends React.PureComponent {
     };
   }
 
-  renderModal = () => {
-
-      this.setState({ showModal: !this.state.showModal })
-  }
-
   handleOk = () => {
       const { email, password } = this.state
 
