@@ -26,9 +26,9 @@ class App extends React.Component {
 
   componentWillUnmount() {
     // FIREBASE
-    this.unsubscribeQueryListener();
+    // this.unsubscribeQueryListener();
     // FIREBASE
-    this.unsubscribeAuthListener();
+    // this.unsubscribeAuthListener();
   }
 
   render() {
